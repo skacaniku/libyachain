@@ -1,27 +1,62 @@
 version: 1
-validation: sovereign
-default_denom: stake
-accounts: 
-- name: alice
-  coins:
-  - 20000token
-  - 200000000stake
-- name: bob
-  coins:
-  - 10000token
-  - 100000000stake
-client:
-  openapi:
-    path: docs/static/openapi.json
-faucet:
-  name: bob
-  coins:
-  - 5token
-  - 100000stake
+
+accounts:
+  - name: alice
+    coins:
+      - 100000000ulydc
+      - 20000ulydd
+  - name: bob
+    coins:
+      - 100000000ulydc
+      - 10000ulydd
+
 validators:
-- name: alice
-  bonded: 100000000stake
-- name: validator1
-  bonded: 200000000stake
-- name: validator2
-  bonded: 100000000stake
+  - name: alice
+    bonded: "10000000ulydc"   # 10 LYDC bonded (ulydc has 6 decimals)
+
+faucet:
+  name: alice
+  coins:
+    - 100000ulydc
+    - 1000ulydd
+  host: "0.0.0.0:4500"
+
+genesis:
+  app_state:
+    staking:
+      params:
+        bond_denom: "ulydc"
+    mint:
+      params:
+        mint_denom: "ulydc"
+    crisis:
+      constant_fee:
+        denom: "ulydc"
+        amount: "1000"
+    gov:
+      deposit_params:
+        min_deposit:
+          - amount: "1000000"
+            denom: "ulydc"
+    bank:
+      denom_metadata:
+        - description: "Libyan Digital Currency"
+          base: "ulydc"
+          name: "Libyan Digital Currency"
+          symbol: "LYDC"
+          display: "lydc"
+          denom_units:
+            - denom: "ulydc"
+              exponent: 0
+            - denom: "lydc"
+              exponent: 6
+        - description: "Libyan Digital Dinar (CBDC)"
+          base: "ulydd"
+          name: "Libyan Digital Dinar"
+          symbol: "LYDD"
+          display: "lydd"
+          denom_units:
+            - denom: "ulydd"
+              exponent: 0
+            - denom: "lydd"
+              exponent: 6

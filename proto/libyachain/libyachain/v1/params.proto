@@ -1,0 +1,13 @@
+syntax = "proto3";
+package libyachain.libyachain.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "libyachain/x/libyachain/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "libyachain/x/libyachain/Params";
+  option (gogoproto.equal) = true;
+}

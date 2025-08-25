@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 type msgServer struct {

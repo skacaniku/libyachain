@@ -1,8 +1,8 @@
 package app
 
 import (
-	_ "libyachain/x/libyachain/module"
-	libyachainmoduletypes "libyachain/x/libyachain/types"
+	_ "github.com/skacaniku/libyachain/x/libyachain/module"
+	libyachainmoduletypes "github.com/skacaniku/libyachain/x/libyachain/types"
 	"time"
 
 	runtimev1alpha1 "cosmossdk.io/api/cosmos/app/runtime/v1alpha1"

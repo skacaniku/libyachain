@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"libyachain/x/libyachain/keeper"
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/keeper"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 func TestMsgUpdateParams(t *testing.T) {

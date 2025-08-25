@@ -3,7 +3,7 @@ package keeper
 import (
 	"context"
 
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.

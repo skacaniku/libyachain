@@ -13,9 +13,9 @@ import (
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"libyachain/x/libyachain/keeper"
-	module "libyachain/x/libyachain/module"
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/keeper"
+	module "github.com/skacaniku/libyachain/x/libyachain/module"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 type fixture struct {

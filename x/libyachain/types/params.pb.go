@@ -67,7 +67,7 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("libyachain/libyachain/v1/params.proto", fileDescriptor_92c883a9a1f63cca)
+	proto.RegisterFile("github.com/skacaniku/libyachain/libyachain/v1/params.proto", fileDescriptor_92c883a9a1f63cca)
 }
 
 var fileDescriptor_92c883a9a1f63cca = []byte{

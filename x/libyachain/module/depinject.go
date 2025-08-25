@@ -9,8 +9,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"libyachain/x/libyachain/keeper"
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/keeper"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 var _ depinject.OnePerModuleType = AppModule{}

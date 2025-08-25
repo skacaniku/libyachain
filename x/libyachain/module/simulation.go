@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 // GenerateGenesisState creates a randomized GenState of the module.

@@ -45,8 +45,8 @@ import (
 	ibctransferkeeper "github.com/cosmos/ibc-go/v10/modules/apps/transfer/keeper"
 	ibckeeper "github.com/cosmos/ibc-go/v10/modules/core/keeper"
 
-	"libyachain/docs"
-	libyachainmodulekeeper "libyachain/x/libyachain/keeper"
+	"github.com/skacaniku/libyachain/docs"
+	libyachainmodulekeeper "github.com/skacaniku/libyachain/x/libyachain/keeper"
 )
 
 const (

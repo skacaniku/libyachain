@@ -7,8 +7,8 @@ import (
 	clienthelpers "cosmossdk.io/client/v2/helpers"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"libyachain/app"
-	"libyachain/cmd/libyachaind/cmd"
+	"github.com/skacaniku/libyachain/app"
+	"github.com/skacaniku/libyachain/cmd/libyachaind/cmd"
 )
 
 func main() {

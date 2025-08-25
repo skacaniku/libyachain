@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"testing"
 
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 
 	"github.com/stretchr/testify/require"
 )

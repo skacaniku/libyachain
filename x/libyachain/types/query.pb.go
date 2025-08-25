@@ -121,7 +121,7 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("libyachain/libyachain/v1/query.proto", fileDescriptor_5beb1e15fb2fd2a6)
+	proto.RegisterFile("github.com/skacaniku/libyachain/libyachain/v1/query.proto", fileDescriptor_5beb1e15fb2fd2a6)
 }
 
 var fileDescriptor_5beb1e15fb2fd2a6 = []byte{
@@ -227,7 +227,7 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "libyachain/libyachain/v1/query.proto",
+	Metadata: "github.com/skacaniku/libyachain/libyachain/v1/query.proto",
 }
 
 func (m *QueryParamsRequest) Marshal() (dAtA []byte, err error) {

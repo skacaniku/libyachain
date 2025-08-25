@@ -14,8 +14,8 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
-	"libyachain/x/libyachain/keeper"
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/keeper"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 var (

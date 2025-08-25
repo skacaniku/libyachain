@@ -27,7 +27,7 @@ import (
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
 
-	"libyachain/app"
+	"github.com/skacaniku/libyachain/app"
 )
 
 const valVotingPower int64 = 900000000000000

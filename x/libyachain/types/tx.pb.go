@@ -132,7 +132,7 @@ func init() {
 	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "libyachain.libyachain.v1.MsgUpdateParamsResponse")
 }
 
-func init() { proto.RegisterFile("libyachain/libyachain/v1/tx.proto", fileDescriptor_1b44d5f40ca5053a) }
+func init() { proto.RegisterFile("github.com/skacaniku/libyachain/libyachain/v1/tx.proto", fileDescriptor_1b44d5f40ca5053a) }
 
 var fileDescriptor_1b44d5f40ca5053a = []byte{
 	// 325 bytes of a gzipped FileDescriptorProto
@@ -241,7 +241,7 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "libyachain/libyachain/v1/tx.proto",
+	Metadata: "github.com/skacaniku/libyachain/libyachain/v1/tx.proto",
 }
 
 func (m *MsgUpdateParams) Marshal() (dAtA []byte, err error) {

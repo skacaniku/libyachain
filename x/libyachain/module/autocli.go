@@ -3,7 +3,7 @@ package libyachain
 import (
 	autocliv1 "cosmossdk.io/api/cosmos/autocli/v1"
 
-	"libyachain/x/libyachain/types"
+	"github.com/skacaniku/libyachain/x/libyachain/types"
 )
 
 // AutoCLIOptions implements the autocli.HasAutoCLIConfig interface.

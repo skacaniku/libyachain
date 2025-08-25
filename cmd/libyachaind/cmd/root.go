@@ -17,7 +17,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/spf13/cobra"
 
-	"libyachain/app"
+	"github.com/skacaniku/libyachain/app"
 )
 
 // NewRootCmd creates a new root command for libyachaind. It is called once in the main function.

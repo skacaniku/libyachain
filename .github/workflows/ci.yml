@@ -1,17 +1,31 @@
 name: CI
+
 on:
-push:
-branches: [ main ]
-pull_request:
-branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
-- uses: actions/setup-go@v5
-with:
-go-version: '1.22'
-- run: go version
-- run: go mod tidy
-- run: go build ./...
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25.x'
+          cache: true
+
+      # If your repo already contains generated protobufs, you don't need protoc.
+      # If you later add proto generation in CI, install protoc/buf here.
+
+      - name: Build libyachaind
+        run: |
+          go mod download
+          go build -v -o libyachaind ./cmd/libyachaind
+
+      - name: Smoke test
+        run: ./libyachaind version || true

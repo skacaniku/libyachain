@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  node0:
+    build: .
+    container_name: libyachain-node0
+    command: >
+      sh -c "
+      if [ ! -f /home/libyachain/.libyachaind/config/genesis.json ]; then
+        libyachaind init node0 --chain-id libyachain-docker --home /home/libyachain/.libyachaind &&
+        libyachaind keys add validator --keyring-backend test --home /home/libyachain/.libyachaind &&
+        libyachaind add-genesis-account \$$(libyachaind keys show validator -a --keyring-backend test --home /home/libyachain/.libyachaind) \
+          100000000000ulydd,100000000000ulydc,100000000000uucbl \
+          --keyring-backend test --home /home/libyachain/.libyachaind &&
+        libyachaind gentx validator 1000000000ulydd \
+          --chain-id libyachain-docker \
+          --keyring-backend test \
+          --home /home/libyachain/.libyachaind &&
+        libyachaind collect-gentxs --home /home/libyachain/.libyachaind &&
+        sed -i 's/minimum-gas-prices = \"\"/minimum-gas-prices = \"0.001ulydd,0.001ulydc,0.001uucbl\"/g' /home/libyachain/.libyachaind/config/app.toml &&
+        sed -i 's/enable = false/enable = true/g' /home/libyachain/.libyachaind/config/app.toml &&
+        sed -i 's/swagger = false/swagger = true/g' /home/libyachain/.libyachaind/config/app.toml
+      fi &&
+      libyachaind start --home /home/libyachain/.libyachaind
+      "
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "1317:1317"
+      - "9090:9090"
+      - "26660:26660"
+    volumes:
+      - node0-data:/home/libyachain/.libyachaind
+    networks:
+      - libyachain-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:26657/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add more nodes for a multi-node setup
+  # node1:
+  #   build: .
+  #   container_name: libyachain-node1
+  #   command: libyachaind start --home /home/libyachain/.libyachaind
+  #   ports:
+  #     - "26666:26656"
+  #     - "26667:26657"
+  #     - "1327:1317"
+  #     - "9091:9090"
+  #   volumes:
+  #     - node1-data:/home/libyachain/.libyachaind
+  #   networks:
+  #     - libyachain-network
+  #   depends_on:
+  #     - node0
+
+volumes:
+  node0-data:
+  # node1-data:
+
+networks:
+  libyachain-network:
+    driver: bridge

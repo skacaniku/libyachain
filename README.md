@@ -14,10 +14,45 @@ LibyaChain is a sovereign blockchain designed to support Libya's digital currenc
 
 ## Technology Stack
 
-- **Cosmos SDK** v0.50.11
-- **IBC-Go** v8.5.2  
-- **CometBFT** v0.38.18
+- **Cosmos SDK** v0.50.11 - Modular blockchain framework
+- **IBC-Go** v8.5.2 - Inter-Blockchain Communication protocol
+- **CometBFT** v0.38.18 - Byzantine fault-tolerant consensus engine
+- **Go** 1.21+ - Implementation language
+- **gRPC** - High-performance RPC framework
+- **Tendermint** - Consensus algorithm
 - Custom modules for three-currency system
+
+## Architecture
+
+### Blockchain Layers
+
+```
+┌─────────────────────────────────────────┐
+│        Application Layer (ABCI)         │
+│  ┌─────────────────────────────────┐   │
+│  │   Bank │ Staking │ Gov │ IBC    │   │
+│  │   LYDD │  LYDC   │ UCBL System  │   │
+│  └─────────────────────────────────┘   │
+├─────────────────────────────────────────┤
+│         Consensus Layer                 │
+│         (CometBFT/Tendermint)           │
+├─────────────────────────────────────────┤
+│         Networking Layer                │
+│         (P2P Communication)             │
+└─────────────────────────────────────────┘
+```
+
+### Module Architecture
+
+- **Auth**: Account management and authentication
+- **Bank**: Multi-currency balance management (LYDD, LYDC, UCBL)
+- **Staking**: Validator delegation using LYDD
+- **Distribution**: Reward distribution to validators and delegators
+- **Governance**: On-chain governance with multi-currency support
+- **Slashing**: Validator penalty mechanism
+- **Mint**: LYDD token inflation
+- **IBC**: Cross-chain communication
+- **Evidence**: Byzantine behavior detection
 
 ## Network Endpoints
 
@@ -42,21 +77,71 @@ LibyaChain is a sovereign blockchain designed to support Libya's digital currenc
 
 ## Getting Started
 
-### Running a Node
+### Prerequisites
+
+- **Go**: 1.21 or higher
+- **Make**: For build automation
+- **GCC**: For cgo dependencies (optional, for ledger support)
+
+### Installation
+
+#### From Source
 
 ```bash
 # Clone repository
 git clone https://github.com/skacaniku/libyachain
 cd libyachain
 
-# Build
+# Download dependencies
+go mod download
+
+# Build and install
 make install
 
-# Initialize
-libyachaind init <moniker> --chain-id libyachain
+# Verify installation
+libyachaind version
+```
 
-# Start node
+#### Using Docker
+
+```bash
+# Build Docker image
+docker build -t libyachain:latest .
+
+# Run with Docker Compose
+docker-compose up -d
+
+# Check logs
+docker-compose logs -f node0
+```
+
+### Quick Start - Local Development
+
+```bash
+# Initialize single-node testnet
+./scripts/init-testnet.sh
+
+# Start the node
 libyachaind start
+
+# In another terminal, check status
+libyachaind status
+
+# Query balances
+libyachaind query bank balances <address>
+```
+
+### Multi-Node Testnet
+
+```bash
+# Initialize 4-node testnet
+./scripts/init-multi-node.sh
+
+# Start all nodes
+~/.libyachain-testnet/start-all.sh
+
+# Stop all nodes
+~/.libyachain-testnet/stop-all.sh
 ```
 
 ### Connecting to Testnet
@@ -65,15 +150,50 @@ libyachaind start
 # Configure RPC endpoint
 libyachaind config node https://rpc.libyachain.net
 
-# Query account balance
+# Set chain ID
+libyachaind config chain-id libyachain-testnet-1
+
+# Query account balance (all currencies)
 libyachaind query bank balances <address>
+
+# Query specific currency
+libyachaind query bank balances <address> --denom ulydd
+```
+
+### Sending Transactions
+
+```bash
+# Send LYDD
+libyachaind tx bank send <from> <to> 1000ulydd \
+    --chain-id libyachain-testnet-1 \
+    --fees 100ulydd
+
+# Send multiple currencies
+libyachaind tx bank send <from> <to> 1000ulydd,500ulydc,100uucbl \
+    --chain-id libyachain-testnet-1
+
+# Delegate to validator
+libyachaind tx staking delegate <validator> 1000000ulydd \
+    --from <key> \
+    --chain-id libyachain-testnet-1
 ```
 
 ## Documentation
 
-- Developer guides and API references (coming soon)
-- Architecture documentation
-- Deployment guides
+### Available Documentation
+
+- **[Developer Guide](DEVELOPERS.md)** - Comprehensive development documentation
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
+- **[Changelog](CHANGELOG.md)** - Version history and changes
+- **API Reference** - Available at http://localhost:1317/swagger/ when running
+- **Architecture** - See [Architecture](#architecture) section above
+
+### Development Resources
+
+- **Build Commands**: See [Makefile](Makefile)
+- **Scripts**: Development scripts in [scripts/](scripts/)
+- **Genesis Template**: [config/genesis-template.json](config/genesis-template.json)
+- **Docker Setup**: [docker-compose.yml](docker-compose.yml)
 
 ## Contributing
 

@@ -18,6 +18,8 @@ require (
 	github.com/cosmos/cosmos-sdk v0.50.11
 	github.com/cosmos/gogoproto v1.7.0
 	github.com/cosmos/ibc-go/v8 v8.5.2
+	github.com/ethereum/go-ethereum v1.13.15
+	github.com/evmos/ethermint v0.22.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/spf13/cast v1.7.0
 	github.com/spf13/cobra v1.8.1

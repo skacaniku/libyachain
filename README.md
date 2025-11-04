@@ -1,16 +1,26 @@
 # LibyaChain
 
-A Layer 1 blockchain built on Cosmos SDK featuring a unique three-currency ecosystem for Libya's digital economy.
+A **privacy-focused, EVM-compatible** Layer 1 blockchain built on Cosmos SDK featuring a unique three-currency ecosystem for Libya's digital economy.
 
 ## Overview
 
-LibyaChain is a sovereign blockchain designed to support Libya's digital currency infrastructure with three distinct currencies operating in harmony.
+LibyaChain is a sovereign blockchain that combines the best of Cosmos SDK modularity, Ethereum smart contract compatibility, and privacy-preserving technology to support Libya's digital currency infrastructure.
+
+## 🌟 Key Features
+
+- 🔐 **Privacy-Preserving**: zk-SNARK-based private transactions protecting sender, receiver, and amount
+- 🔷 **EVM-Compatible**: Full Ethereum compatibility - deploy Solidity contracts, use MetaMask, Web3 tools
+- 🌉 **Multi-Chain Bridges**: Native bridges to Bitcoin, Ethereum, Solana, BNB Chain, TRON, and Dogecoin
+- 💰 **Three-Currency System**: LYDD (stablecoin), LYDC (asset-backed), UCBL (CBDC) working in harmony
+- 🔗 **IBC-Enabled**: Inter-Blockchain Communication for Cosmos ecosystem integration
+- ⚡ **High Performance**: 1-2 second finality, 1000+ transactions per second
+- 🛡️ **Enterprise Security**: Multi-signature validation, audited bridges, regulatory compliance
 
 ## Three-Currency System
 
-- **LYDD (ulydd)** - Libyan Digital Dinar - Stablecoin for everyday transactions
-- **LYDC (ulydc)** - Libyan Digital Currency - Cryptocurrency with asset backing
-- **UCBL (uucbl)** - Central Bank of Libya CBDC - Institutional currency
+- **LYDD (ulydd)** - Libyan Digital Dinar - Stablecoin for everyday transactions, gas fees, and staking
+- **LYDC (ulydc)** - Libyan Digital Currency - Asset-backed crypto for investment, DeFi, and cross-border trade
+- **UCBL (uucbl)** - Central Bank of Libya CBDC - Institutional currency for government, banks, and settlements
 
 ## Technology Stack
 
@@ -63,17 +73,44 @@ LibyaChain is a sovereign blockchain designed to support Libya's digital currenc
 
 ## Features
 
-✅ Three-currency system with seamless interoperability  
-✅ IBC-enabled for cross-chain transfers  
-✅ Custom policy and treasury modules  
-✅ WebSocket streaming for real-time updates  
-✅ Production-ready explorer and faucet  
+### Core Blockchain
+✅ Three-currency system with seamless interoperability
+✅ IBC-enabled for cross-chain transfers
+✅ Cosmos SDK v0.50.11 with CometBFT consensus
+✅ 1-2 second block time with instant finality
+✅ Custom modules for treasury and policy management
+
+### Privacy Features
+✅ zk-SNARK-based private transactions
+✅ Shielded pool for confidential balances
+✅ Selective disclosure for compliance
+✅ Multi-currency privacy (LYDD, LYDC, UCBL)
+✅ Optional viewing keys for auditing
+
+### EVM Compatibility
+✅ Full Ethereum Virtual Machine support
+✅ Solidity smart contracts (0.8.x)
+✅ Web3, MetaMask, Hardhat, Truffle compatible
+✅ Ethereum JSON-RPC endpoints
+✅ Custom precompiles for Cosmos features
+✅ Multi-currency gas payments
+
+### Cross-Chain Bridges
+✅ Bitcoin (BTC) - 6 confirmations, 0.3% fee
+✅ Ethereum (ETH, USDT, USDC, DAI) - 12 confirmations, 0.2% fee
+✅ Solana (SOL, USDC) - 32 confirmations, 0.1% fee
+✅ BNB Chain (BNB, BUSD) - 15 confirmations, 0.2% fee
+✅ TRON (TRX, USDT) - 19 confirmations, 0.2% fee
+✅ Dogecoin (DOGE) - 40 confirmations, 0.3% fee
 
 ## Developer Tools
 
+- **libyachaind CLI** - Complete command-line interface
+- **EVM RPC** - Ethereum-compatible JSON-RPC endpoints
 - **TypeScript SDK** - `@libyachain/sdk` (coming soon)
-- **React Components** - UI components for dApps
-- **CLI Tools** - Command-line blockchain operations
+- **Hardhat Plugin** - Deploy and test smart contracts
+- **MetaMask** - Browser wallet integration
+- **Explorer** - Block explorer and contract verification
 
 ## Getting Started
 

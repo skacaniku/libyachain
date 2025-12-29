@@ -1,0 +1,91 @@
+vue/node_modules
+vue/dist
+release/
+.idea/
+.vscode/
+.DS_Store
+*.dot
+*.log
+*.ign
+infra/*.env
+.ai-team/
+.ma/.env
+validator.dev.json
+wallets.vanity.json
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Process ID files
+*.pid
+
+# Development documentation and helper scripts
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE.md
+start-*.sh
+.autogenstudio/
+.codex*/
+.claude*/
+.pycache*/
+.pytest_cache/
+__pycache__/
+.cloudflared/
+
+# Go coverage artifacts
+coverage.out
+coverage.html
+
+# Local temp/work directory
+_tmp/
+
+# Node package directories
+node_modules/
+**/node_modules/
+
+# Go caches
+.gocache/
+.gomodcache/
+
+# Binary files and build artifacts
+libyachaind
+**/libyachaind
+*.test
+build/
+infra/
+
+# Large log directories
+logs/
+
+# PROPRIETARY - NOT FOR PUBLIC REPOSITORY
+# Admin Dashboard
+admin-web/
+
+# Currency/Exchange Systems (LYUSD, LYDD, UCBL, LYDX)
+lydx/
+swap-web/
+
+# Faucet Application
+faucet-web/
+
+# Block Explorer
+explorer-web/
+
+# Landing Page
+landing-web/
+
+# Documentation Site
+docs-web/
+
+# Shared UI Components
+shared-ui/
+packages/ui/
+
+# Proprietary services and modules
+services/
+x/admin/
+x/launchpad/
+x/lydex/
